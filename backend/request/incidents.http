@@ -1,0 +1,47 @@
+@baseUrl = http://localhost:3000/api
+
+### Health check
+GET {{baseUrl}}/health
+
+### Obtener todos los incidentes
+GET {{baseUrl}}/incidents
+
+### Filtrar por categoría
+GET {{baseUrl}}/incidents?category=bache
+
+### Filtrar por estado
+GET {{baseUrl}}/incidents?status=pendiente
+
+### Buscar por texto
+GET {{baseUrl}}/incidents?search=bache
+
+### Obtener GeoJSON
+GET {{baseUrl}}/incidents/geojson
+
+### Obtener incidente por ID
+GET {{baseUrl}}/incidents/INC-001
+
+### Crear un nuevo incidente
+POST {{baseUrl}}/incidents
+Content-Type: application/json
+
+{
+    "title": "Nuevo bache en calle principal",
+    "category": "bache",
+    "description": "Bache peligroso en la esquina",
+    "status": "pendiente",
+    "latitude": 21.125,
+    "longitude": -101.685
+}
+
+### Actualizar un incidente
+PATCH {{baseUrl}}/incidents/INC-001
+Content-Type: application/json
+
+{
+    "title": "Bache reparado frente a la universidad",
+    "status": "atendido"
+}
+
+### Eliminar un incidente
+DELETE {{baseUrl}}/incidents/INC-003

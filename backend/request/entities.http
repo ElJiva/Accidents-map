@@ -1,0 +1,138 @@
+@baseUrl = http://localhost:3000/api
+
+### Health check
+GET {{baseUrl}}/health
+
+
+### ================= 1. HOSPITALES Y CLÍNICAS =================
+### Listar todos los hospitales
+GET {{baseUrl}}/hospitals
+
+### Filtrar por tipo (hospital)
+GET {{baseUrl}}/hospitals?type=hospital
+
+### Filtrar por tipo (clinica)
+GET {{baseUrl}}/hospitals?type=clinica
+
+### Filtrar por tipo (cruz_roja)
+GET {{baseUrl}}/hospitals?type=cruz_roja
+
+### Filtrar por estado (operando)
+GET {{baseUrl}}/hospitals?status=operando
+
+### Filtrar por estado (saturado)
+GET {{baseUrl}}/hospitals?status=saturado
+
+### Filtrar por estado (cerrado)
+GET {{baseUrl}}/hospitals?status=cerrado
+
+### Buscar por texto
+GET {{baseUrl}}/hospitals?search=angeles
+
+### Obtener GeoJSON de hospitales
+GET {{baseUrl}}/hospitals/geojson
+
+### Obtener hospital por ID
+GET {{baseUrl}}/hospitals/HOSP-001
+
+### Hospital no encontrado (404)
+GET {{baseUrl}}/hospitals/HOSP-999
+
+
+### ================= 2. ESTACIONES DE EMERGENCIA =================
+### Listar todas las estaciones
+GET {{baseUrl}}/stations
+
+### Filtrar por tipo (bomberos)
+GET {{baseUrl}}/stations?type=bomberos
+
+### Filtrar por tipo (policia)
+GET {{baseUrl}}/stations?type=policia
+
+### Filtrar por tipo (proteccion_civil)
+GET {{baseUrl}}/stations?type=proteccion_civil
+
+### Filtrar por estado (activa)
+GET {{baseUrl}}/stations?status=activa
+
+### Filtrar por estado (inactiva)
+GET {{baseUrl}}/stations?status=inactiva
+
+### Buscar por texto
+GET {{baseUrl}}/stations?search=apolo
+
+### Obtener GeoJSON de estaciones
+GET {{baseUrl}}/stations/geojson
+
+### Obtener estación por ID
+GET {{baseUrl}}/stations/STAT-001
+
+### Estación no encontrada (404)
+GET {{baseUrl}}/stations/STAT-999
+
+
+### ================= 3. PARADAS DE TRANSPORTE (SIT OPTIBÚS) =================
+### Listar todas las paradas
+GET {{baseUrl}}/bus-stops
+
+### Filtrar por tipo (troncal)
+GET {{baseUrl}}/bus-stops?type=troncal
+
+### Filtrar por tipo (alimentadora)
+GET {{baseUrl}}/bus-stops?type=alimentadora
+
+### Filtrar por tipo (auxiliar)
+GET {{baseUrl}}/bus-stops?type=auxiliar
+
+### Filtrar por estado (operando)
+GET {{baseUrl}}/bus-stops?status=operando
+
+### Filtrar por estado (suspendida)
+GET {{baseUrl}}/bus-stops?status=suspendida
+
+### Buscar por texto
+GET {{baseUrl}}/bus-stops?search=poliforum
+
+### Obtener GeoJSON de paradas
+GET {{baseUrl}}/bus-stops/geojson
+
+### Obtener parada por ID
+GET {{baseUrl}}/bus-stops/BUS-001
+
+### Parada no encontrada (404)
+GET {{baseUrl}}/bus-stops/BUS-999
+
+
+### ================= 4. ZONAS WIFI GRATUITO =================
+### Listar todas las zonas WiFi
+GET {{baseUrl}}/wifi-spots
+
+### Filtrar por tipo (plaza)
+GET {{baseUrl}}/wifi-spots?type=plaza
+
+### Filtrar por tipo (parque)
+GET {{baseUrl}}/wifi-spots?type=parque
+
+### Filtrar por tipo (edificio_publico)
+GET {{baseUrl}}/wifi-spots?type=edificio_publico
+
+### Filtrar por estado (activa)
+GET {{baseUrl}}/wifi-spots?status=activa
+
+### Filtrar por estado (intermitente)
+GET {{baseUrl}}/wifi-spots?status=intermitente
+
+### Filtrar por estado (caida)
+GET {{baseUrl}}/wifi-spots?status=caida
+
+### Buscar por texto
+GET {{baseUrl}}/wifi-spots?search=explora
+
+### Obtener GeoJSON de zonas WiFi
+GET {{baseUrl}}/wifi-spots/geojson
+
+### Obtener zona WiFi por ID
+GET {{baseUrl}}/wifi-spots/WIFI-001
+
+### Zona WiFi no encontrada (404)
+GET {{baseUrl}}/wifi-spots/WIFI-999
