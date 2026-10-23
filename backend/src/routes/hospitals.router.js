@@ -55,4 +55,18 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
+// POST /api/hospitals — Crear un nuevo hospital o clínica
+router.post("/", async (req, res, next) => {
+  try {
+    const newHospital = await service.create(req.body);
+
+    res.status(201).json({
+      message: "Hospital creado correctamente.",
+      data: newHospital,
+    });
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = router;

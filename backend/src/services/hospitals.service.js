@@ -1,5 +1,6 @@
 "use strict";
 
+const { randomUUID } = require("node:crypto");
 const { seedHospitals } = require("../data/hospitals.seed");
 const AppError = require("../utils/appError");
 
@@ -45,6 +46,26 @@ class HospitalsService {
       throw new AppError(404, `No se encontró el hospital o clínica con ID: ${id}`);
     }
     return hospital;
+  }
+
+  async create(data) {
+    const currentDate = new Date().toISOString();
+    const newHospital = {
+      id: `HOSP-${randomUUID()}`,
+      name: data.name.trim(),
+      type: data.type.trim(),
+      status: data.status || "operando",
+      description: data.description.trim(),
+      beds: Number(data.beds) || 0,
+      location: {
+        type: "Point",
+        coordinates: [Number(data.longitude), Number(data.latitude)],
+      },
+      createdAt: currentDate,
+      updatedAt: currentDate,
+    };
+    this.hospitals.push(newHospital);
+    return newHospital;
   }
 
   async getGeoJSON(filters = {}) {

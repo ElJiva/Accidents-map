@@ -55,4 +55,18 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
+// POST /api/bus-stops — Crear una nueva parada de transporte
+router.post("/", async (req, res, next) => {
+  try {
+    const newBusStop = await service.create(req.body);
+
+    res.status(201).json({
+      message: "Parada de transporte creada correctamente.",
+      data: newBusStop,
+    });
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = router;

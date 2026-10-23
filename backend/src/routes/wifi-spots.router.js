@@ -55,4 +55,18 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
+// POST /api/wifi-spots — Crear una nueva zona WiFi
+router.post("/", async (req, res, next) => {
+  try {
+    const newWifiSpot = await service.create(req.body);
+
+    res.status(201).json({
+      message: "Zona WiFi creada correctamente.",
+      data: newWifiSpot,
+    });
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = router;

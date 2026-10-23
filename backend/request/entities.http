@@ -38,6 +38,20 @@ GET {{baseUrl}}/hospitals/HOSP-001
 ### Hospital no encontrado (404)
 GET {{baseUrl}}/hospitals/HOSP-999
 
+### Crear un nuevo hospital
+POST {{baseUrl}}/hospitals
+Content-Type: application/json
+
+{
+    "name": "Clínica Nueva Vida",
+    "type": "clinica",
+    "status": "operando",
+    "description": "Clínica privada de atención general en zona sur",
+    "beds": 45,
+    "latitude": 21.1050,
+    "longitude": -101.6700
+}
+
 
 ### ================= 2. ESTACIONES DE EMERGENCIA =================
 ### Listar todas las estaciones
@@ -70,6 +84,20 @@ GET {{baseUrl}}/stations/STAT-001
 ### Estación no encontrada (404)
 GET {{baseUrl}}/stations/STAT-999
 
+### Crear una nueva estación de emergencia
+POST {{baseUrl}}/stations
+Content-Type: application/json
+
+{
+    "name": "Subestación de Protección Civil Norte",
+    "type": "proteccion_civil",
+    "status": "activa",
+    "description": "Unidad de protección civil para la zona norte de León",
+    "units": 5,
+    "latitude": 21.1550,
+    "longitude": -101.6900
+}
+
 
 ### ================= 3. PARADAS DE TRANSPORTE (SIT OPTIBÚS) =================
 ### Listar todas las paradas
@@ -101,6 +129,20 @@ GET {{baseUrl}}/bus-stops/BUS-001
 
 ### Parada no encontrada (404)
 GET {{baseUrl}}/bus-stops/BUS-999
+
+### Crear una nueva parada de transporte
+POST {{baseUrl}}/bus-stops
+Content-Type: application/json
+
+{
+    "name": "Paradero Las Torres",
+    "type": "alimentadora",
+    "status": "operando",
+    "description": "Paradero alimentador en zona residencial Las Torres",
+    "routesCount": 3,
+    "latitude": 21.1320,
+    "longitude": -101.6450
+}
 
 
 ### ================= 4. ZONAS WIFI GRATUITO =================
@@ -136,3 +178,17 @@ GET {{baseUrl}}/wifi-spots/WIFI-001
 
 ### Zona WiFi no encontrada (404)
 GET {{baseUrl}}/wifi-spots/WIFI-999
+
+### Crear una nueva zona WiFi
+POST {{baseUrl}}/wifi-spots
+Content-Type: application/json
+
+{
+    "name": "WiFi Biblioteca Central",
+    "type": "edificio_publico",
+    "status": "activa",
+    "description": "Red WiFi gratuita en la Biblioteca Pública Central de León",
+    "speedMbps": 30.0,
+    "latitude": 21.1200,
+    "longitude": -101.6800
+}

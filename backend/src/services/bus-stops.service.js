@@ -1,5 +1,6 @@
 "use strict";
 
+const { randomUUID } = require("node:crypto");
 const { seedBusStops } = require("../data/bus-stops.seed");
 const AppError = require("../utils/appError");
 
@@ -45,6 +46,26 @@ class BusStopsService {
       throw new AppError(404, `No se encontró la parada de transporte con ID: ${id}`);
     }
     return busStop;
+  }
+
+  async create(data) {
+    const currentDate = new Date().toISOString();
+    const newBusStop = {
+      id: `BUS-${randomUUID()}`,
+      name: data.name.trim(),
+      type: data.type.trim(),
+      status: data.status || "operando",
+      description: data.description.trim(),
+      routesCount: Number(data.routesCount) || 0,
+      location: {
+        type: "Point",
+        coordinates: [Number(data.longitude), Number(data.latitude)],
+      },
+      createdAt: currentDate,
+      updatedAt: currentDate,
+    };
+    this.busStops.push(newBusStop);
+    return newBusStop;
   }
 
   async getGeoJSON(filters = {}) {
